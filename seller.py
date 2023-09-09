@@ -68,7 +68,7 @@ def get_offer_ids(client_id: str, seller_token: str) -> list:
 
     Example:
         >>> get_offer_ids('client_id', 'seller_token')
-        [71405, 64151, 71698]
+        ['71405', '64151', '71698']
     """
     last_id = ""
     product_list = []
@@ -86,7 +86,7 @@ def get_offer_ids(client_id: str, seller_token: str) -> list:
 
 
 def update_price(prices: list, client_id: str, seller_token: str) -> dict:
-    """Returns update price result in JSON format as a dictionary.
+    """Updates price for your items in Ozon.
 
     Args:
         prices (list): List of dictionaries containing id, price, etc.
@@ -123,7 +123,7 @@ def update_price(prices: list, client_id: str, seller_token: str) -> dict:
 
 
 def update_stocks(stocks: list, client_id: str, seller_token: str):
-    """Returns upload result in JSON format as a dictionary.
+    """Updates stocks on the site.
 
     Args:
         stocks (list): Contains dictionares with offer_id and stock data.
@@ -131,13 +131,13 @@ def update_stocks(stocks: list, client_id: str, seller_token: str):
         seller_token (str): String with seller_token from Ozon.ru".
 
     Returns:
-        dict:Dictionary containing upload result.
+        dict: Upload result in JSON format as a dictionary.
 
     Raises:
         requests.exceptions.ReadTimeout: If the request timed out.
         requests.exceptions.ConnectionError: If there is an error with
         the connection.
-        Exception: If input data is not a list and if list and if
+        Exception: If stocks is not a list, and if list and
         dictionaries in list does not contain the correct structure.
 
     Example:
@@ -310,7 +310,7 @@ def divide(lst: list, n: int):
 
 
 async def upload_prices(watch_remnants: list, client_id, seller_token):
-    """Update prices and return a dictionaries of products as a list.
+    """Update prices on the site.
 
     Args:
         watch_remnants (list): List with products info.
@@ -318,7 +318,7 @@ async def upload_prices(watch_remnants: list, client_id, seller_token):
         seller_token (str): String with seller_token from Ozon.ru.
 
     Returns:
-        str: Products as a list of dictionaries.
+        list: Product data as a list of dictionaries.
 
     Raises:
         requests.exceptions.ReadTimeout: If the request timed out.
@@ -352,13 +352,13 @@ async def upload_stocks(watch_remnants: list, client_id, seller_token):
         seller_token (str): String with seller_token from Ozon.ru.
 
     Returns:
-        Tuple containing 2 lists.
+        tuple: 2 lists.
 
     Raises:
         requests.exceptions.ReadTimeout: If the request timed out.
         requests.exceptions.ConnectionError: If there is an error with
         the connection.
-        Exception: If watch_remnants is empty.
+        Exception: If watch_remnants is empty or wrong access api tokens.
 
      Example:
          >>> watch_remnants = [{"Код": '123', "Наименование": "Product A",
