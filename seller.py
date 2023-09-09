@@ -28,8 +28,7 @@ def get_product_list(last_id: str, client_id: str, seller_token: str) -> dict:
         Exception: If client_id or seller_token have wrong key or wrong type.
 
     Example:
-        >>> get_product_list('bnVсbA==', '39481726',
-        ... 'w2DDI76ydkuFFq-oX-FC6WXgg0T=wegHg')
+        >>> get_product_list('bnVсbA==', 'client_id', 'seller_token')
         {"result": {"items": [{"product_id": 223681945, "offer_id":
         "136748"}], "total": 1, "last_id": "bnVсbA=="}}
     """
@@ -68,7 +67,7 @@ def get_offer_ids(client_id: str, seller_token: str) -> list:
         Exception: If client_id or seller_token have wrong key or wrong type.
 
     Example:
-        >>> get_offer_ids('39481726', 'w2DDI76ydkuFFq-oX-FC6WXgg0T=wegHg')
+        >>> get_offer_ids('client_id', 'seller_token')
         [71405, 64151, 71698]
     """
     last_id = ""
@@ -107,8 +106,8 @@ def update_price(prices: list, client_id: str, seller_token: str) -> dict:
     Example:
         >>> prices = [{'auto_action_enabled': 'UNKNOWN', 'currency_code':
         ... 'RUB', 'offer_id': '123', 'old_price': '0', 'price': '5990'}]
-        >>> client_id = '1234523434'
-        >>> seller_token = '32e23d23dasd23(#@N-213e'
+        >>> client_id = 'client_id'
+        >>> seller_token = 'seller_token'
         >>> update_price(prices, client_id, seller_token)
         {"result": [{"offer_id": "123", "updated": true}]}
     """
@@ -143,8 +142,8 @@ def update_stocks(stocks: list, client_id: str, seller_token: str):
 
     Example:
         >>> stock_list = [{'offer_id': 123, 'stock': 5}]
-        >>> client_id = '1234523434'
-        >>> seller_token = '32e23d23dasd23(#@N-213e'
+        >>> client_id = 'client_id'
+        >>> seller_token = 'seller_token'
         >>> update_stocks(stock_list, client_id, seller_token)
         {"result": [{"offer_id": 123,"updated": true }]}
     """
@@ -331,8 +330,8 @@ async def upload_prices(watch_remnants: list, client_id, seller_token):
          >>> watch_remnants = [{"Код": '123', "Наименование": "Product A",
         ... "Цена": "5'990.00 руб."}, {"Код": '987', "Наименование":
         ... "Product B", "Цена": "10'990.00 руб."}]
-        >>> client_id = '1234523434'
-        >>> seller_token = '32e23d23dasd23(#@N-213e'
+        >>> client_id = 'client_id'
+        >>> seller_token = 'seller_token'
         >>> print(upload_prices(watch_remnants, client_id, seller_token))
          [{'auto_action_enabled': 'UNKNOWN', 'currency_code': 'RUB',
         'offer_id': '123', 'old_price': '0', 'price': '5990'}]
@@ -365,8 +364,8 @@ async def upload_stocks(watch_remnants: list, client_id, seller_token):
          >>> watch_remnants = [{"Код": '123', "Наименование": "Product A",
         ... "Цена": "5'990.00 руб."}, {"Код": '987', "Наименование":
         ... "Product B", "Цена": "10'990.00 руб."}]
-        >>> client_id = '1234523434'
-        >>> seller_token = '32e23d23dasd23(#@N-213e'
+        >>> client_id = 'client_id'
+        >>> seller_token = 'seller_token'
         >>> print(upload_stocks(watch_remnants, client_id, seller_token))
         ([{'offer_id': '123', 'stock': 5}],
         [{'offer_id': '123', 'stock': 5},
