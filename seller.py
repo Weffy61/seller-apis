@@ -352,7 +352,7 @@ async def upload_stocks(watch_remnants: list, client_id, seller_token):
         seller_token (str): String with seller_token from Ozon.ru.
 
     Returns:
-        tuple: 2 lists.
+        tuple: 1st list with offer_id where stock > 0, 2nd all offer_id's
 
     Raises:
         requests.exceptions.ReadTimeout: If the request timed out.
