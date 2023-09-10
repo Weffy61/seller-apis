@@ -369,7 +369,7 @@ async def upload_stocks(watch_remnants, campaign_id, market_token, warehouse_id)
         warehouse_id (str): String with warehouse id.
 
     Returns:
-        tuple: 2 lists.
+        tuple: 1st list with SKU where stock > 0, 2nd all SKUs
 
     Raises:
         requests.exceptions.ReadTimeout: If the request timed out.
